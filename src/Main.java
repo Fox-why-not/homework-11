@@ -2,7 +2,7 @@ import java.time.LocalDate;
 
 public class Main {
 
-    public static void cheakYear(int year) {
+    public static void checkYear(int year) {
         if (year < 1584) {
             System.out.println("Данный год не подходит под критерии определения високосного года.");
         } else {
@@ -14,16 +14,18 @@ public class Main {
         }
     }
 
-    public static void printDeviceVercion(int clientOS, int clientDeviceYear) {
+    public static void printDeviceVersion(int clientOS, int clientDeviceYear) {
         int currentYear = LocalDate.now().getYear();
         if (clientOS == 0 && clientDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-        } else if (clientOS == 0 && clientDeviceYear >= currentYear) {
+        } else if (clientOS == 0 && clientDeviceYear == currentYear) {
             System.out.println("Установите версию приложения для iOS по ссылке");
         } else if (clientOS == 1 && clientDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
-        } else if (clientOS == 1 && clientDeviceYear >= currentYear) {
+        } else if (clientOS == 1 && clientDeviceYear == currentYear) {
             System.out.println("Установите версию приложения для Android по ссылке");
+        } else if (clientDeviceYear > currentYear){
+            throw new RuntimeException ("Путешествия в этот временной отрезок запрещены обьеденённой космической федерацией, не пытайтесь вмешаться в ход текущих событий во избежание временно-пространственного парадокса!");
         }
     }
 
@@ -46,10 +48,10 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        cheakYear(2003);
+        { checkYear(2003);}
 
-        printDeviceVercion(1, 2020);
+        {  printDeviceVersion(1, 2026);}
 
-        dayToDelivery(70);
+        { dayToDelivery(70);}
     }
 }
