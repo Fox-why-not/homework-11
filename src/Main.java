@@ -48,10 +48,10 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        { checkYear(2003);}
+        checkYear(2003);
 
-        {  printDeviceVersion(1, 2026);}
+         printDeviceVersion(1, 2022);
 
-        { dayToDelivery(70);}
+        dayToDelivery(70);
     }
 }
